@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ title }}</title>
+    <title>{{ title | title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -55,6 +55,8 @@
         </div>
     </div>
 </nav>
+
+<div><h2>Текущая дата и время: <p>{{ date }}</p></h2></div>
 
 <!-- Page Content -->
 {% block content %} {% endblock %}

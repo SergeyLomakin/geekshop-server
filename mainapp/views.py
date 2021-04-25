@@ -1,15 +1,19 @@
 from django.shortcuts import render
+import datetime
 
 
 # Create your views here.
 def index(request):
-    context = {'title': 'GeekShop'}
+    context = {
+        'title': 'GeekShop',
+        'date': datetime.datetime.now()
+    }
     return render(request, 'mainapp/index.html', context)
 
 
 def products(request):
     context = {
-        'title': 'GeekShop - Каталог',
+        'title': 'GeekShop - каталог',
         'products': [
             {'name': 'Худи черного цвета с монограммами adidas Originals', 'price': 6090.00,
              'description': 'Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни.'},
@@ -22,7 +26,8 @@ def products(request):
              'description': 'Гладкий кожаный верх. Натуральный материал.'},
             {'name': 'Темно-синие широкие строгие брюки ASOS DESIGN', 'price': 2890.00,
              'description': 'Легкая эластичная ткань сирсакер Фактурная ткань.'},
-        ]
+        ],
+        'date': datetime.datetime.now(),
 
     }
     return render(request, 'mainapp/products.html', context)

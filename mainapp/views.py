@@ -6,7 +6,6 @@ import datetime
 def index(request):
     context = {
         'title': 'GeekShop',
-        'date': datetime.datetime.now()
     }
     return render(request, 'mainapp/index.html', context)
 
@@ -27,7 +26,5 @@ def products(request):
             {'name': 'Темно-синие широкие строгие брюки ASOS DESIGN', 'price': 2890.00,
              'description': 'Легкая эластичная ткань сирсакер Фактурная ткань.'},
         ],
-        'date': datetime.datetime.now(),
-
     }
     return render(request, 'mainapp/products.html', context)

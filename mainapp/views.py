@@ -1,8 +1,7 @@
 from django.shortcuts import render
-import datetime
+from mainapp.models import Product, ProductCategory
 
 
-# Create your views here.
 def index(request):
     context = {
         'title': 'GeekShop',
@@ -13,18 +12,7 @@ def index(request):
 def products(request):
     context = {
         'title': 'GeekShop - каталог',
-        'products': [
-            {'name': 'Худи черного цвета с монограммами adidas Originals', 'price': 6090.00,
-             'description': 'Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни.'},
-            {'name': 'Синяя куртка The North Face', 'price': 23725.00,
-             'description': 'Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель. '},
-            {'name': 'Коричневый спортивный oversized-топ ASOS DESIGN', 'price': 3390.00,
-             'description': 'Материал с плюшевой текстурой. Удобный и мягкий.'},
-            {'name': 'Черный рюкзак Nike Heritage', 'price': 2340.00, 'description': 'Плотная ткань. Легкий материал.'},
-            {'name': 'Черные туфли на платформе с 3 парами люверсов Dr Martens 1461 Bex', 'price': 13590.00,
-             'description': 'Гладкий кожаный верх. Натуральный материал.'},
-            {'name': 'Темно-синие широкие строгие брюки ASOS DESIGN', 'price': 2890.00,
-             'description': 'Легкая эластичная ткань сирсакер Фактурная ткань.'},
-        ],
+        'products': Product.objects.all(),
+        'categories': ProductCategory.objects.all()
     }
     return render(request, 'mainapp/products.html', context)

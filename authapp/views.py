@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
 
-from authapp.forms import UserLoginForm
+from authapp.forms import UserLoginForm, UserRegisterForm
 
 
 def login(request):
@@ -21,6 +21,7 @@ def login(request):
     return render(request, 'authapp/login.html', context)
 
 
-# def register(request):
-#     context = {'title': 'GeekShop - Регистрация'}
-#     return render(request, 'authapp/register.html', context)
+def register(request):
+    form = UserRegisterForm()
+    context = {'title': 'GeekShop - Регистрация', 'form': form}
+    return render(request, 'authapp/register.html', context)

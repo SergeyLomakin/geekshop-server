@@ -43,7 +43,8 @@ def profile(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:profile'))
-    form = UserProfileForm(instance=request.user)
+    else:
+        form = UserProfileForm(instance=request.user)
 
     baskets = Basket.objects.all()
 

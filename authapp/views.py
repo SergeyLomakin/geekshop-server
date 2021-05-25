@@ -1,10 +1,17 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth, messages
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import FormView
 
 from authapp.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from basketapp.models import Basket
+
+
+# class UserLogin(FormView):
+#     form_class = UserLoginForm
+#     template_name = 'authapp/login.html'
+#     success_url = reverse_lazy('index')
 
 
 def login(request):
